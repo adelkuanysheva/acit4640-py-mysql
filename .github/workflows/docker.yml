@@ -7,12 +7,14 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    matrix:
-        include:
-          - dockerfile: ./app/Dockerfile
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/app
-          - dockerfile: ./web/Dockerfile
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/web
+    strategy:
+      fail-fast: false
+      matrix:
+          include:
+            - dockerfile: ./app/Dockerfile
+              image: ${{ secrets.DOCKERHUB_USERNAME }}/app
+            - dockerfile: ./web/Dockerfile
+              image: ${{ secrets.DOCKERHUB_USERNAME }}/web
     steps:
     - 
       name: Checkout the code
