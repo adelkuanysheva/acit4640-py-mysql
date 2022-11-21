@@ -17,8 +17,7 @@ COPY backend.test.template /app/src
 COPY --chmod=777 app.sh /app/src
 COPY --chmod=777 start.sh /app/src
 COPY --chmod=777 insert_data.sh /app/src
-
-RUN wget -qq https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh && chmod a+x wait-for-it.sh
+COPY wait-for-it.sh /app/src/
 
 EXPOSE 8000
 
