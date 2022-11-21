@@ -7,14 +7,7 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-          include:
-            - dockerfile: ./app/Dockerfile
-              image: ${{ secrets.DOCKERHUB_USERNAME }}/app
-            - dockerfile: ./web/Dockerfile
-              image: ${{ secrets.DOCKERHUB_USERNAME }}/web
+
     steps:
     - 
       name: Checkout the code
@@ -32,4 +25,3 @@ jobs:
           push: true
           tags: adelkuanysheva/demo4640:latest  
           context: ./app
-          file: ${{ matrix.dockerfile }}
