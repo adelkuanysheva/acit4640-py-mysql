@@ -7,7 +7,7 @@ RUN apt-get -q install -y netcat
 USER backend
 WORKDIR /app
 
-RUN cp -r ./backend /app/src 
+RUN cp -r ../backend /app/src 
 
 RUN python -m pip install -r /app/src/requirements.txt
 
